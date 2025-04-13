@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.16)
 project(ArrowHouse)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_BUILD_TYPE Release)
+set(ARROW_SIMD_LEVEL NONE)
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
 # 设置Arrow静态编译选项
 set(ARROW_BUILD_STATIC ON)
@@ -20,7 +23,7 @@ set(ARROW_JSON OFF)
 add_subdirectory(lib/arrow/cpp)
 
 # 主程序
-add_executable(ArrowHouse main.cpp)
+add_executable(ArrowHouse src/main.cpp)
 
 # 链接静态库
 target_link_libraries(ArrowHouse PRIVATE
